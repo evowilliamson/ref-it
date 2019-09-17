@@ -1,0 +1,6 @@
+while read p; do
+  a=`echo "$p" | sha512sum | awk '{printf $1}'`
+  echo -e "$p" "\t" "$a"
+  mv "$p" "$a"
+done < <(ls -1)
+
